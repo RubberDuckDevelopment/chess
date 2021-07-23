@@ -1,16 +1,40 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="index.css">
-    </head>
-    <body>
-        <div class="container">
-            <div class="board">
-            </div>
-        </div>
-        <input type="text" id="position-entry" placeholder="Position" size="5" maxlength="2">
-        <button onClick="formatPosition()" >Submit Position</button>
-        <button onClick="resetBoard()">Create Board</button>
-        <script src="index.js"></script>
-    </body>
+  <head>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="board"></div>
+    </div>
+    <input
+      type="text"
+      id="position-entry"
+      placeholder="Position"
+      size="5"
+      maxlength="2"
+    />
+    <div>
+      <input
+        type="radio"
+        id="piece-black"
+        name="piece-selection"
+        value="black"
+        checked
+      />
+      <label for="piece-black">Black</label>
+    </div>
+    <div>
+      <input
+        type="radio"
+        id="piece-white"
+        name="piece-selection"
+        value="white"
+      />
+      <label for="piece-white">White</label>
+    </div>
+    <button onClick="formatPosition()">Submit Position</button>
+    <button onClick="resetBoard()">Create Board</button>
+    <script src="index.js"></script>
+  </body>
 </html>
