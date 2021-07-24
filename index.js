@@ -58,6 +58,10 @@ const pieces = [
 const startingPosition =
   "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
 
+(function start() {
+  resetBoard();
+})();
+
 function returnBoardArray(boardRanks = 8, boardFiles = 8) {
   let boardArr = new Array(boardRanks * boardFiles);
 
@@ -136,6 +140,7 @@ function resetBoard(boardArr = returnBoardArray().reverse()) {
     board.removeChild(board.firstChild);
   }
   generateBoard(boardArr);
+  updateBoardBackground();
 }
 
 function formatPosition() {
@@ -231,4 +236,22 @@ function parsePiece(pieceAbbreviation) {
     (piece) => piece.symbol == pieceAbbreviation.toLowerCase()
   )[0];
   return parsedPiece;
+}
+
+function updateBoardBackground() {
+  const offsetRow = document.querySelectorAll(".board .offset:nth-child(even)");
+  const evenRow = document.querySelectorAll(".board .even:nth-child(odd)");
+
+  const blackColorBg = document.getElementById("black-color-bg").value;
+  const whiteColorBg = document.getElementById("white-color-bg").value;
+
+  [...offsetRow].forEach((node) => colorCell(node, blackColorBg));
+  [...evenRow].forEach((node) => colorCell(node, blackColorBg));
+
+  const board = document.querySelector(".board");
+  board.style.backgroundColor = whiteColorBg;
+}
+
+function colorCell(node, color) {
+  node.style.backgroundColor = color;
 }

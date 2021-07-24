@@ -7,18 +7,37 @@
     <div class="container">
       <div class="board"></div>
     </div>
-
-    <textarea
-      type="text"
-      id="fen-entry"
-      placeholder="Paste FEN"
-      maxlength="92"
-      style="height: 60px; width: 240px"
-      wrap
-    >
-rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2
-    </textarea>
-    <button onClick="parseFEN()">Show Board</button>
+    <div>
+      <textarea
+        type="text"
+        id="fen-entry"
+        placeholder="Paste FEN"
+        maxlength="92"
+        style="height: 60px; width: 240px"
+        wrap
+      >
+rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2</textarea
+      >
+      <button onClick="parseFEN()">Show FEN</button>
+    </div>
+    <div>
+      <label for="black-color-bg">Black Background</label>
+      <input
+        type="color"
+        value="#cfb891"
+        id="black-color-bg"
+        onchange="updateBoardBackground()"
+      />
+    </div>
+    <div>
+      <label for="white-color-bg">White Background</label>
+      <input
+        type="color"
+        id="white-color-bg"
+        value="#ede6da"
+        onchange="updateBoardBackground()"
+      />
+    </div>
 
     <script src="index.js"></script>
   </body>

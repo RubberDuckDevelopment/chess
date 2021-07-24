@@ -4,6 +4,7 @@
   justify-content: center;
   background: rgb(228, 228, 228);
 }
+
 .board {
   display: flex;
   flex-wrap: wrap;
@@ -27,13 +28,13 @@
   align-items: center;
 }
 
-.board > .offset:nth-child(even) {
+/* .board > .offset:nth-child(even) {
   background: burlywood;
 }
 
 .board > .even:nth-child(odd) {
   background: burlywood;
-}
+} */
 
 .piece {
 }
@@ -41,4 +42,5 @@
 img {
   width: auto;
   height: 40px;
+  margin-top: 8px;
 }
