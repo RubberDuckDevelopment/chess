@@ -168,12 +168,12 @@ function formatPosition() {
 
 function parseFEN() {
   let FENentry = document.getElementById("fen-entry").value.split("/");
-
-  let boardArr = returnBoardArray().reverse();
-
+  const FEN = formatFEN(FENentry);
+  displayFEN(FEN);
+}
+function formatFEN(FENentry) {
   let parsedFEN;
   let FEN = [];
-  let cellCount = 0;
 
   for (let i = 0; i < 8; i++) {
     //parse each rank
@@ -181,10 +181,12 @@ function parseFEN() {
     FEN.push(parsedFEN);
   }
   FEN.join();
+  //console.log(FEN);
+  return FEN;
+}
 
-  //   console.log(FEN);
-
-  //console.table(FEN);
+function displayFEN(FEN) {
+  let boardArr = returnBoardArray().reverse();
   for (let j = 0; j < 8; j++) {
     for (let i = 0; i < 8; i++) {
       cellCount = j * 8 + i;
@@ -239,17 +241,30 @@ function parsePiece(pieceAbbreviation) {
 }
 
 function updateBoardBackground() {
+  const board = document.querySelector(".board");
+
   const offsetRow = document.querySelectorAll(".board .offset:nth-child(even)");
   const evenRow = document.querySelectorAll(".board .even:nth-child(odd)");
 
   const blackColorBg = document.getElementById("black-color-bg").value;
   const whiteColorBg = document.getElementById("white-color-bg").value;
 
-  [...offsetRow].forEach((node) => colorCell(node, blackColorBg));
-  [...evenRow].forEach((node) => colorCell(node, blackColorBg));
+  setBackgroundColors(
+    board,
+    [...offsetRow, ...evenRow],
+    blackColorBg,
+    whiteColorBg
+  );
+}
 
-  const board = document.querySelector(".board");
-  board.style.backgroundColor = whiteColorBg;
+function setBackgroundColors(
+  board,
+  blackRows,
+  blackBackground,
+  whiteBackground
+) {
+  blackRows.forEach((node) => colorCell(node, blackBackground));
+  board.style.backgroundColor = whiteBackground;
 }
 
 function colorCell(node, color) {
