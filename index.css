@@ -36,8 +36,9 @@
 }
 
 .piece {
-  border-radius: 50px;
-  border: 1px solid black;
-  width: 33px;
-  height: 33px;
+}
+
+img {
+  width: auto;
+  height: 40px;
 }

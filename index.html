@@ -7,34 +7,19 @@
     <div class="container">
       <div class="board"></div>
     </div>
-    <input
+
+    <textarea
       type="text"
-      id="position-entry"
-      placeholder="Position"
-      size="5"
-      maxlength="2"
-    />
-    <div>
-      <input
-        type="radio"
-        id="piece-black"
-        name="piece-selection"
-        value="black"
-        checked
-      />
-      <label for="piece-black">Black</label>
-    </div>
-    <div>
-      <input
-        type="radio"
-        id="piece-white"
-        name="piece-selection"
-        value="white"
-      />
-      <label for="piece-white">White</label>
-    </div>
-    <button onClick="formatPosition()">Submit Position</button>
-    <button onClick="resetBoard()">Create Board</button>
+      id="fen-entry"
+      placeholder="Paste FEN"
+      maxlength="92"
+      style="height: 60px; width: 240px"
+      wrap
+    >
+rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2
+    </textarea>
+    <button onClick="parseFEN()">Show Board</button>
+
     <script src="index.js"></script>
   </body>
 </html>
